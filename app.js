@@ -20,6 +20,7 @@ const database = require('./bin/database/connect');
 
 // load routes for various handles
 const apiRoutes = require('./routes/apiRoutes');
+const homeRoutes = require('./routes/homeRoutes');
 
 // parse valid requests only
 app.use(
@@ -31,6 +32,7 @@ app.use(
 app.use(bodyparser.json());
 
 // bind routes to application
+app.use('/', homeRoutes);
 app.use('/api', apiRoutes);
 
 // start listening on ports
